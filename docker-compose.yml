@@ -1,0 +1,26 @@
+version: '3.5'
+services:
+  mail-client:
+    build: .
+    container_name: mail-client
+    depends_on:
+      - mail-server
+  mail-server:
+    image: tvial/docker-mailserver:latest
+    hostname: mail
+    domainname: dmm.com
+    container_name: mail-server
+    ports:
+      - 110:110
+      - 25:25
+      - 587:587
+    volumes:
+      - ./config/:/tmp/docker-mailserver/
+      - ./maildata:/var/mail
+      - ./mailstate:/var/mail-state
+    environment:
+      - ENABLE_SPAMASSASSIN=1
+      - ENABLE_CLAMAV=1
+      - ENABLE_FAIL2BAN=1
+      - ENABLE_POSTGREY=1
+      - ENABLE_LDAP=0
