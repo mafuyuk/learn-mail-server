@@ -2,3 +2,5 @@
 config/chksum
 config/postfix-aliases.cf
 
+/mailstate
+/maildata
