@@ -2,11 +2,39 @@
 メールサーバーについて学習する
 
 # Play
-
-
+環境構築
 ```bash
 $ docker-compose up -d
+```
+
+Mailサーバーログ確認
+```bash
+$ docker logs -f mail-server
+```
+
+wip メール送信(port 25)
+```bash
 $ docker exec -it mail-client telnet mail-server 25
+HELO mail-client
+MAIL FROM:aaaa@example.com
+RCPT TO:mafuyuk.m@gmail.com
+DATA
+
+From: "Mehrdad" <aaaa@example.com>
+To: "Mafuyuk" <mafuyuk.m@gmail.com>
+Subject: Hello World!
+
+こにゃにゃちわ～
+
+.
+QUIT
+```
+
+wip メール送信(port 587)
+```bash
+$ docker exec -it mail-client telnet mail-server 587
+HELO mail-client
+STARTTLS
 ```
 
 # その他
