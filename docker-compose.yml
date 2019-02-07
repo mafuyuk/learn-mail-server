@@ -8,7 +8,7 @@ services:
   mail-server:
     image: tvial/docker-mailserver:latest
     hostname: mail
-    domainname: dmm.com
+    domainname: mafuyuk.com
     container_name: mail-server
     ports:
       - 110:110
