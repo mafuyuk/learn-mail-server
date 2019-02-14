@@ -12,19 +12,19 @@ Mailサーバーログ確認
 $ docker logs -f mail-server
 ```
 
-wip メール送信(port 25)
+メール送信(port 25)
 ```bash
 $ docker exec -it mail-client telnet mail-server 25
 HELO mail-client
-MAIL FROM:aaaa@example.com
+MAIL FROM:kero-chan@example.com
 RCPT TO:mafuyuk.m@gmail.com
 DATA
-
-From: "Mehrdad" <aaaa@example.com>
-To: "Mafuyuk" <mafuyuk.m@gmail.com>
 Subject: Hello World!
+From: "ケロちゃん" <kero-chan@example.com>
+To: "Mafuyuk" <mafuyuk.m@gmail.com>
 
 こにゃにゃちわ～
+ケロちゃんにおまかせ、司会進行のケルベロスや、よろしゅうな。
 
 .
 QUIT
