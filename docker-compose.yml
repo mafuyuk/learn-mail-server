@@ -8,7 +8,7 @@ services:
   mail-server:
     image: tvial/docker-mailserver:latest
     hostname: mail
-    domainname: mafuyuk.com
+    domainname: example.com
     container_name: mail-server
     ports:
       - 110:110
@@ -19,6 +19,8 @@ services:
       - ./maildata:/var/mail
       - ./mailstate:/var/mail-state
     environment:
+      # debug したい場合には以下の行のコメントアウトを解除する
+      # - DMS_DEBUG=1
       - PERMIT_DOCKER=network
       - ENABLE_SPAMASSASSIN=1
       - ENABLE_CLAMAV=1
